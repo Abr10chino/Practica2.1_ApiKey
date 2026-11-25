@@ -53,8 +53,15 @@ public class ApiKeyFilter extends OncePerRequestFilter{
 		
 		String apiKey = request.getHeader("X-API-KEY");
 		if(apiKey == null || apiKey.isBlank()) {
-			mensajeError(response, HttpServletResponse.SC_UNAUTHORIZED, "No enviaron el apiKey en el encabezado");
-			return;
+			
+			apiKey = request.getParameter("X-API-KEY");
+			
+			if(apiKey == null || apiKey.isBlank()) {
+				
+				mensajeError(response, HttpServletResponse.SC_UNAUTHORIZED, "No envio el apiKey");
+				return;
+				
+			}
 		}
 		
 		Optional<HistoryLog> logOpt = historyLogRepository.findByApiKey(apiKey);
