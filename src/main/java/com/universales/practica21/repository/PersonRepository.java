@@ -10,6 +10,6 @@ import com.universales.practica21.entity.Person;
 @Repository("personRepository")
 public interface PersonRepository extends JpaRepository<Person, Long>{
 	
-	Optional<Person> findByusername(String username);
+	Optional<Person> findByUsername(String username);
 
 }

@@ -17,7 +17,7 @@ import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "HISTORYLOG")
+@Table(name = "HISTORY_LOG")
 public class HistoryLog implements Serializable{
 
 	private static final long serialVersionUID = -7940578476949320548L;
